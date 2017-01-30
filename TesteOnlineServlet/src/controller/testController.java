@@ -49,10 +49,6 @@ public class testController {
 					
 				}				
 			}
-			else
-			{
-				//aici face boti editarea
-			}
 		}
 
 		System.out.println("FTest t5: " + test.toString());
