@@ -1,0 +1,48 @@
+﻿<body ng-app="chatModule">
+        <div ng-controller="ChatCtrl" class="chatWindow" style="margin-top:50px;">
+            <div class="col-md-3 chatUserTab">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in allUsers">
+                            <td ng-if="user.id!=currentUser.id">
+                                <button class="btn btn-primary btn-block" style="margin:0;border-radius:0px;" type="submit" ng-model="user.username" ng-click="setReciever(user)">
+                                    {{user.username}}
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-9 chatContent">
+
+                <div class="row head">
+                    <h2 ng-if="reciever!==undefined">
+                        {{reciever.username}}
+                    </h2>
+                </div>
+                <div class="msgArea">
+                    <div ng-repeat="message in Messages">
+                        <p ng-if="message.sender==reciever.id" class="MessTypeA" style="background-color: #339933; text-align: left; color: white;padding:5px;">
+                            {{message.text}}
+                        </p>
+                        <p ng-if="message.sender==currentUser.id" class="MessTypeB" style="background-color: #666699; text-align: right; color: white; padding: 5px;">
+                            {{message.text}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row inputArea">
+                    <div class="col-md-11">
+                        <textarea class="form-control" rows="3" ng-model="MsgInputModel" style="resize:none;"></textarea>
+                    </div>
+                    <button type="submit" ng-click="send()" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </div>
+    </body>

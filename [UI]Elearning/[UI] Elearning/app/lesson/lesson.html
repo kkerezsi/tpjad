@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Lesson</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body style="background-color: #eee">
+
+    <aside class="navbar navbar-inverse" style="width: 300px; height: 100%; position: fixed; float: left; margin-top: 50px; border-radius: 0; border: none;">
+        <div class="container-fluid">
+            <ul class="nav nav-stacked" role="tablist">
+                <li><a href="#/AddCourse">Add Course</a></li>
+                <li><a href="#">Add Assistant</a></li>
+                <li><a href="#/AddCourseEvent">Courses Calendar</a></li>
+                <li><a href="#/Test">Course tests</a></li>
+                <li><a href="#/Lesson">Course lessons</a></li>
+                <li><a href="#/TestList">Course tests</a></li>
+                <li><a href="#/CourseGroups">Course groups</a></li>
+            </ul>
+        </div>
+    </aside>
+    <div class="jumbotron" style="width: 900px; height:200px;overflow:auto; left; margin-left: 300px; text-align: center">
+        <table class="table table-striped">
+            <thead>
+                <tr style="font-weight:bold">
+                    <td>#</td>
+                    <td>Lesson name</td>
+                    <td>Start date</td>
+                    <td>End date</td>
+                    <td>Course</td>
+                    <td>Delete lesson</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="lesson in allLessons">
+                    <td>{{$index + 1}}</td>
+                    <td>{{lesson.name}}</td>
+                    <td>{{lesson.date_start}}</td>
+                    <td>{{lesson.date_end}}</td>
+                    <td ng-repeat="course in allCourses">
+                        <span ng-if="lesson.course == course.id">{{course.name}}</span>
+                    </td>
+                    <td id="lesson.id"><button ng-click="RemoveLesson(lesson.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="jumbotron" style="width: 900px; float: left; margin-left: 300px; text-align: center">
+
+        <!--
+            Add lesson
+        -->
+        <div class="container">
+            <h2>Add new lesson</h2>
+            <form class="form-horizontal" name="form" novalidate>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Select course</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="course">
+                            <option ng-repeat="course in allCourses" value={{course.id}}>
+                                {{course.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Lesson Name</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="lessonName" type="text" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Start Date</label>
+                    <div class="col-sm-10">
+                        <input class="col-sm-12"  type="date" id="startdate" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">End Date</label>
+                    <div class="col-sm-10">
+                        <input class ="col-sm-12" type="date" id="enddate" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="5" id="description" style="resize: none;overflow:auto;"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Lesson Content</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="5" id="content" style="resize: none;overflow:auto;"></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center" style="margin-left:40%;">
+                    <button class="btn btn-primary col-lg-11" ng-click="AddLesson()"
+                            style="height:30px">
+                        Save Lesson
+                    </button>
+                </div>
+                <div class="text-center">
+                    <b ng-if="successfullySaved" style="color:green;padding-left:0px;">
+                        Registration Successful!
+                    </b>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

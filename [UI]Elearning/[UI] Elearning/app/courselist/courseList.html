@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<head>
+    <title></title>
+    <link href="../../Content/CourseListStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper" class="outer" style="margin-top:50px;">
+
+        <div class="css-shapes-preview">
+            <div ng-repeat=" course in courses" class="listItem">
+                <span style="font-size:large">{{ course.name }}</span>
+                <a href="#/Course/{{ course.name }}" id="course.id"
+                   ng-class="{ myButtonActivated : course.enrolled,myButton: !course.enrolled   }"
+                   ng-click="enroll($index,course.id)">{{course.label}}</a>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</body>

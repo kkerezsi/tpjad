@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Professor Courses Calendar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body style="background-color: #eee">
+
+    <aside class="navbar navbar-inverse" style="width: 300px; height: 100%; position: fixed; float: left; margin-top: 50px; border-radius: 0; border: none;">
+        <div class="container-fluid">
+            <ul class="nav nav-stacked" role="tablist">
+                <li><a href="#/AddCourse">Add Course</a></li>
+                <li><a href="#">Add Assistant</a></li>
+                <li><a href="#/AddCourseEvent">Courses Calendar</a></li>
+                <li><a href="#/Test">Course tests</a></li>
+                <li><a href="#/Lesson">Course lessons</a></li>
+                <li><a href="#/TestList">Course tests list</a></li>
+                <li><a href="#/CourseGroups">Course groups</a></li>
+            </ul>
+        </div>
+    </aside>
+    
+    <div style="width:1000px;float:left;margin-left:300px;margin-top:80px;" ng-init="LoadCourseEvents()">
+        <form class="form-horizontal" name="event_form" novalidate>
+            <label for="sel1">Select course for event:</label>
+
+            <select class="form-control" id="course">
+                <option ng-repeat="course in allCourses" value={{course.id}}>
+                    {{course.name}}
+                </option>
+            </select>
+            <div class="text-center">
+                <b ng-if="successfullySavedEvent" style="color:green;padding-left:0px;">
+                    Registration Successful!
+                </b>
+            </div>
+            <div id="wrapper" style="width:800px;">
+                <div id="myScheduler"></div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

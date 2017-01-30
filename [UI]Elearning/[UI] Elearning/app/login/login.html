@@ -1,0 +1,45 @@
+﻿<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Welcome {{username}}!</h1>
+        <h2>Facultatea de Matematica-Informatica</h2>
+    </div>
+    <hr>
+
+    <div class="container" style="background-color:#eee;width:99%;">
+        <br />
+        <br />
+        <div class="col-lg-4 col-md-4 col-sm-4 text-left">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 text-left">
+            <div class="row text-center" style="font-size:40px"><span class="glyphicon glyphicon-log-in"></span> Login </div>
+            <br />
+            <form name="form" ng-submit="login()" role="form" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <i class="fa fa-key"></i>
+                    <input type="text" name="username" id="username" class="form-control" ng-model="username" required />
+                    <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <i class="fa fa-lock"></i>
+                    <input type="password" name="password" id="password" class="form-control" ng-model="password" required />
+                    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-danger col-lg-12 col-md-12 col-sm-12">Login</button>
+                    <div ng-if="failedLogin" style="color:red"> Invalid username or password !</div>
+                </div>
+            </form>
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+
+

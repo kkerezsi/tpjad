@@ -1,0 +1,66 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Announcements</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body style="background-color: #eee">
+
+    <div class="col-sm-2" style="padding-left:0px; padding-right:0px; height:100%">
+        <aside class="navbar navbar-inverse" style="height: 800px; height: 100%; position: fixed; float: left; margin-top: 50px; border-radius: 0; border: none;">
+            <div class="container-fluid">
+                <ul class="nav nav-stacked" role="tablist">
+                    <li><a href="#/Personal">My Account</a></li>
+                    <li ng-if="$root.checkPermission('SuperUser')"><a href="#/UserPanel">User Panel</a></li>
+                    <li ng-if="$root.checkPermission('SuperUser')"><a href="#/Logs">Event Logs</a></li>
+                    <li ng-if="$root.checkPermission('SuperUser')"><a href="#/AddGlobalAnnouncement">Global Announcement</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <div class="jumbotron" style="width:700px;margin:0 auto;text-align:center">
+
+        <!--
+            Add new global announcement
+        -->
+        <div class="container">
+            <h2>Add new global announcement</h2>
+            <form class="form-horizontal" name="form" novalidate>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Title</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="title" type="text" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Content</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="content" type="text" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 text-center" style="margin-left:40%;">
+                    <button class="btn btn-primary col-lg-11" ng-click="AddAnnouncement()"
+                            style="height:30px">
+                        Add
+                    </button>
+                </div>
+                <div class="text-center">
+                    <b ng-if="successfullySaved" style="color:green;padding-left:0px;">
+                        Announcement Registration Successful!
+                    </b>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

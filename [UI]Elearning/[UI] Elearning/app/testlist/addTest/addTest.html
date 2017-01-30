@@ -1,0 +1,72 @@
+﻿<div class="modal-header">
+    <h3> <span class="glyphicon glyphicon-edit"></span> {{test.isNew ? 'Add' : 'Edit' }} test </h3>
+</div>
+<div class="modal-body col-sm-12 modal-backgorund">
+    <ng-form name="testForm" novalidate>
+        <div class="col-sm-12 pusher-20" ng-class="{ 'has-error' : testForm.submitted && !testForm.description.$valid }">
+            <div class="col-sm-2 spacer-5"> <b>Description :</b></div>
+            <div class="col-sm-10">
+                <input type="text" name="description" ng-model="test.description" class="form-control" required />
+                <div class="has-error" style="padding-top:20px;color:red" ng-if="testForm.submitted && !testForm.description.$valid">
+                    Invalid desciption
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 pusher-20" ng-class="{ 'has-error' : testForm.submitted}">
+            <div class="col-sm-2 spacer-5"> <b>Questions :</b></div>
+            <div class="col-sm-10" style="padding-left:0px;padding-right:0px">
+                <div ng-repeat="question in test.questions track by $index" ng-init="$rowIndex = $index">
+                    <div class="col-xs-12">
+                        <input type="text" ng-model="question.value" name="questionLabel{{$index}}" class="form-control" required />
+                    </div>
+                    <div class="col-xs-12">
+                        <form name="{{question.value}}form">
+                            <table class="table table-responsive table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Options</td>
+                                        <td>Is correct answer</td>
+                                        <td>Remove option</td>
+                                    </tr>
+                                </thead>
+                                <tr ng-repeat="option in question.options track by $index">
+                                    <td>
+                                        <input name="op{{$index}}" class="form-control" ng-model="option.text" required />
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="option{{$rowIndex}}" data-ng-model="option.isAnswer" data-ng-value="true" />
+                                    </td>
+                                    <td>
+                                        <span class="glyphicon glyphicon-remove-sign" style="color:red;cursor:pointer" ng-click="removeOption(question.options, $index)"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-info" ng-click="addOption(question.options)"> Add Option</button>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <div class="pull-right">
+                                            <button class="btn btn-danger" ng-click="removeQuestion(test.questions, $rowIndex)">Remove Question</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="pull-left">
+                        <button class="btn btn-info" ng-click="addQuestion(test)">Add Question</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </ng-form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="saveTest(testForm.$valid)">{{ test.isNew ? 'Add' : 'Edit' }}</button>
+    <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+</div>

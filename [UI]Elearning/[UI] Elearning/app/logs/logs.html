@@ -1,0 +1,36 @@
+﻿<div class="col-sm-2" style="padding-left:0px; padding-right:0px; height:100%">
+    <aside class="navbar navbar-inverse" style="height: 800px; height: 100%; position: fixed; float: left; margin-top: 50px; border-radius: 0; border: none;">
+        <div class="container-fluid">
+            <ul class="nav nav-stacked" role="tablist">
+                <li><a href="#/Personal">My Account</a></li>
+                <li ng-if="$root.checkPermission('SuperUser')"><a href="#/UserPanel">User Panel</a></li>
+                <li ng-if="$root.checkPermission('SuperUser')"><a href="#/Logs">Event Logs</a></li>
+                <li ng-if="$root.checkPermission('SuperUser')"><a href="#/AddGlobalAnnouncement">Global Announcement</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
+<div class="container col-sm-10" style="background-color:#eee;padding-top:50px; height:600px;max-height:600px; overflow-y:scroll">
+    <br />
+    <div class="text-center pusher-20" style="font-size:35px;padding-right:55px"><span class="glyphicon glyphicon-list"></span> Event Logs </div>
+    <div class="row spacer-10 pusher-20">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td> <b>Name</b></td>
+                        <td><b>Description</b></td>
+                        <td><b>Creation date</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="log in logs">
+                        <td>{{log.Entity_name}}</td>
+                        <td>{{log.description}}</td>
+                        <td>{{log.date_created}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

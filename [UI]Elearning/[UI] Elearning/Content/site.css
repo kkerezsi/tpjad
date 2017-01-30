@@ -1,0 +1,55 @@
+﻿body {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.colorGreen {
+    color:green;
+}
+
+.pusher-top-20{
+    padding-top:20px !important;
+}
+.colorRed {
+    color:red;
+}
+
+.spacer-10{
+    padding-top:10px;
+}
+
+.spacer-5{
+    padding-top:5px;
+}
+
+.spacer-20{
+    padding-top:20px;
+}
+
+.pusher-20{
+    padding-bottom:20px;
+}
+
+.modal-backgorund{
+    background-color:white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.red-color-text{
+    color:red;
+}
+
+.green-color-text{
+    color:green;
+}
+
+.show-pointer{
+    cursor:pointer;
+}

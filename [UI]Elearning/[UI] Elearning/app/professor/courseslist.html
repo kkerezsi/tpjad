@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Professor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body style="background-color: #eee">
+    <nav class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom:0;border-radius:0;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Elearning</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Account</a></li>
+                    <li><a href="#">Chat</a></li>
+                    <li><a href="#">Calendar</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/Announcement"><span class=" glyphicon glyphicon-exclamation-sign"></span> Announcement</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="navbar navbar-inverse" style="width: 300px; height: 100%; position: fixed; float: left; margin: 0; border-radius: 0; border: none;">
+        <div class="container-fluid">
+            <ul class="nav nav-stacked" role="tablist">
+                <li><a href="#/AddCourse">Add Course</a></li>
+                <li><a href="#/CoursesList">View All Courses</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#/AddCourseEvent">Courses Calendar</a></li>
+                <li><a href="#/Test">Course tests</a></li>
+                <li><a href="#/Lesson">Course lessons</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="jumbotron" style="width:600px;text-align:right;margin:0 auto;">
+        <table class="table table-striped">
+            <thead>
+                <tr style="font-weight:bold">
+                    <td>#</td>
+                    <td>Course name</td>
+                    <td>Start date</td>
+                    <td>End date</td>
+                    <td>Department</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="course in allCourses">
+                    <td>{{$index + 1}}</td>
+                    <td>{{course.name}}</td>
+                    <td>{{course.start_date}}</td>
+                    <td>{{course.end_date}}</td>
+                    <td>{{course.department}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

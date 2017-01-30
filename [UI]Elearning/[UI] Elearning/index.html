@@ -1,0 +1,138 @@
+﻿<!--                            ATENTIE
+    !!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!
+    ~= NU MODIFICA FISIERUL ASTA DECAT DACA VREI SA INCLUZI UN JS !!  =~
+    !!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!
+    !!!!!!!!!!!!!!!!!!!!!!
+-->
+<!DOCTYPE html>
+<html ng-app="elearning" ng-controller="AppCtrl">
+<head>
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <link rel="stylesheet/less" href="Content/style.less">
+    <script src="http://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+    <link href="http://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/angular-notifier/dist/angular-notifier.css" rel="stylesheet" />
+
+</head>
+<body style="background-color:#eee">
+    <nav class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom:0;z-index: 1;border-radius:0;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Teste Online</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#/TestList">Lista Teste</a></li>
+                    <li><a style="cursor:pointer" ng-click="newTest()">Creaza Test</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="$root.currentUser"><a ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <li ng-if="$root.currentUser"><a ng-click="scoreBoard()"><span class="glyphicon glyphicon-user"></span>{{$root.currentUser.username}}</a></li>
+                 </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div ng-view="">
+    </div>
+</body>
+</html>
+
+<script src="Scripts/jquery-1.9.1.js"></script>
+<script src="Scripts/angular.js"></script>
+<script src="Scripts/angular-route.js"></script>
+<script src="Scripts/bootstrap.js"></script>
+
+<script src="Scripts/lodash.min.js"></script>
+<script src="Scripts/restangular.min.js"></script>
+<script src="Scripts/angular-cookies.js"></script>
+<script src="Scripts/angular-resource.js"></script>
+<script src="Scripts/ngStorage.js"></script>
+<script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+<script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+
+<script src="Scripts/less.js" type="text/javascript"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="Scripts/angular-ui/ui-bootstrap.js"></script>
+<script type="text/javascript" src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+<script src="Scripts/daypilot-all.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-notifier/dist/angular-notifier.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/configs.js"></script>
+
+<script src="app/utils/utils.service.js"></script>
+<script src="app/utils/utils.factory.js"></script>
+
+<script src="app/homepage/homepage.js"></script>
+<script src="app/homepage/factory/homepageFactory.js"></script>
+
+<script src="app/register/register.js"></script>
+<script src="app/register/factory/registerFactory.js"></script>
+
+<script src="app/login/login.js"></script>
+<script src="app/login/factory/loginFactory.js"></script>
+
+<script src="app/chat/chat.js"></script>
+<script src="app/chat/factory/chatFactory.js"></script>
+
+<script src="app/calendar/calendar.js"></script>
+<script src="app/calendar/factory/calendarFactory.js"></script>
+
+<script src="app/course/course.js"></script>
+<script src="app/course/factory/courseFactory.js"></script>
+
+<script src="app/courselist/courseList.controller.js"></script>
+<script src="app/courselist/factory/courseList.factory.js"></script>
+
+<script src="app/studenti/studenti.controller.js"></script>
+
+<script src="app/personalData/personalData.controller.js"></script>
+<script src="app/personalData/factory/personalData.factory.js"></script>
+
+<script src="app/professor/professor.js"></script>
+<script src="app/professor/factory/professorFactory.js"></script>
+
+<script src="app/test/test.js"></script>
+<script src="app/test/factory/testFactory.js"></script>
+
+<script src="app/lesson/lesson.js"></script>
+<script src="app/lesson/factory/lessonFactory.js"></script>
+
+<script src="app/announcement/announcement.js"></script>
+<script src="app/announcement/factory/announcementFactory.js"></script>
+
+<script src="app/department/department.js"></script>
+<script src="app/department/factory/departmentFactory.js"></script>
+
+<script src="app/userPanel/userPanel.controller.js"></script>
+<script src="app/userPanel/factory/userPanel.factory.js"></script>
+<script src="app/userPanel/editUser/editUser.controller.js"></script>
+
+<script src="app/logs/logs.js"></script>
+<script src="app/logs/factory/logsFactory.js"></script>
+
+<script src="app/groups/groups.js"></script>
+<script src="app/groups/factory/groupsFactory.js"></script>
+
+<script src="app/testlist/testlist.js"></script>
+<script src="app/testlist/factory/testlistFactory.js"></script>
+<script src="app/testlist/addTest/addTest.controller.js"></script>
+<script src="app/testlist/beginTest/beginTest.controller.js"></script>
+<script src="app/testlist/score/score.controller.js"></script>

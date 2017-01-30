@@ -1,0 +1,45 @@
+﻿<div class="modal-header">
+    <h3> <span class="glyphicon glyphicon-edit"></span> {{ test.description }} </h3>
+</div>
+<div class="modal-body col-sm-12 modal-backgorund">
+    <ng-form name="testForm" novalidate>
+        <div class="col-sm-12 pusher-20">
+            <div class="col-sm-2 spacer-5"> <b>Questions :</b></div>
+            <div class="col-sm-10" style="padding-left:0px;padding-right:0px">
+                <div ng-repeat="question in test.questions track by $index" ng-init="$rowIndex = $index">
+                    <div class="col-xs-12">
+                        <input type="text" ng-model="question.value" name="questionLabel{{$index}}" class="form-control" disabled />
+                    </div>
+                    <div class="col-xs-12">
+                        <form name="{{question.value}}form">
+                            <table class="table table-responsive table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Options</td>
+                                        <td>Answer</td>
+                                    </tr>
+                                </thead>
+                                <tr ng-repeat="option in question.options track by $index">
+                                    <td>
+                                        <input name="op{{$index}}" class="form-control" ng-model="option.text" disabled />
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="option{{$rowIndex}}" data-ng-model="option.answer" data-ng-value="false" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                </div>
+            </div>
+        </div>
+    </ng-form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="saveTest(testForm.$valid)">Submit</button>
+    <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+</div>

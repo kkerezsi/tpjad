@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<head>
+    <title></title>
+    <link href="../../Content/couseSideBar.css" rel="stylesheet" />
+</head>
+<body>
+
+    <aside class="navbar navbar-inverse" style="width: 200px; height: 100%; position: fixed; float: left; margin-top: 50px; border-radius: 0;border:none;">
+        <div class="container-fluid">
+            <ul class="nav nav-stacked" role="tablist">
+                <li ng-repeat="sideBarItem in sideBarItems"
+                    ng-click="change($index)">
+                    <a href="">{{ sideBarItem.itemName }}</a> 
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="jumbotron" id="main" style="width: calc(100% - 200px); text-align: center; margin: 0 auto; display: block;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 id="itemTitle">Syllabus</h1>
+                    <textarea id="itemContent" style="	width: 100vh;
+	                        height: 80vh;
+                            background-color:ghostwhite;
+	                        border: 0px;
+	                        padding: 5px;
+	                        font-family: Tahoma, sans-serif;
+                            font-size:larger;
+                            resize: none; ">
+                        Welcome to course page
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron" id="list" style="width:calc(100% - 200px);text-align:center;margin:0 auto;margin-left:170px;display:none;">
+        <div style="width:100px;height:100%;overflow:auto;float:left;">
+            <button type="button" ng-click="showLesson(lesson.id)" style="height: 50px;margin:0;border-radius:0px;" class=" btn btn-primary btn-block" ng-repeat="lesson in allLessons"><span class="glyphicon glyphicon-book">{{lesson.name}}</span></button>
+        </div>
+
+        <div id="tests" style="width: 100px; height: 100%; overflow: auto; float: left;">
+            <button type="button" ng-repeat="test in allTests" ng-click="taketest(test)" style="width:100%;height: 50px;margin:0;border-radius:0px;" class=" btn btn-info">
+                <span class="glyphicon glyphicon-pencil">{{test.title}}</span>
+            </button>
+        </div>
+        <div id="test_content" style="width:800px;float:left;height:100%;overflow:auto;display:none;">
+
+        </div>
+
+        <div id="description" style="width:600px;float:left;height:50%;overflow:auto;display:block;">
+
+        </div>
+    </div>
+</body>

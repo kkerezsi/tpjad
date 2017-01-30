@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Group List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div class="group-page">
+        <div class="groupList-container" ng-hide="groupSelected">
+            <h2>Select Group</h2>
+            <div class="row" style="border-bottom: 1px solid #000">
+                <div class="col-md-6">Group Name</div>
+                <div class="col-md-6">Group Type</div>
+            </div>
+            <div ng-repeat="group in groupsList" class="group-container row" ng-click="selectGroup(group.id, group.name);">
+                <div class="group-name col-md-6">{{group.name}}</div>
+                <div class="group-type col-md-6">({{group.type}})</div>
+            </div>
+            <div class="createGroup">
+                <input ng-model="newGroupName" placeholder="New Group Name"/>
+                <input ng-model="newGroupType" placeholder="New Group Type"/>
+                <input ng-model="newGroupTitle" placeholder="New Group Description" />
+                <div class="submit-button" ng-click="createGroup()">Create Group</div>
+            </div>
+        </div>
+
+        <div class="groupInfoContainer" ng-show="groupSelected && discussionClosed">
+            <h2>{{theGroup.name}}</h2>
+            <div class="back-button" ng-click="deselectGroup();">back</div>
+            <div class="single-group-title">{{theGroup.info.title}}</div>
+            <div ng-repeat="discussion in theGroup.info.discussions" class="discussion-element" ng-class-odd="'odd'" ng-class-even="'even'" ng-click="selectDiscussion(discussion.id)">
+                <div>{{discussion.title}}</div>
+            </div>
+            <div class="createDiscussion">
+                <input ng-model="newTopic" placeholder="New Topic" />
+                <div class="submit-button" ng-click="createTopic()">Create Topic</div>
+            </div>
+        </div>
+
+        <div class="forum-part" ng-hide="discussionClosed">
+            <h2>{{theDiscussion.title}}</h2>
+            <div class="back-button" ng-click="deselectDiscussion();">back</div>
+            <div class="forum-replies" ng-repeat="reply in theDiscussion.forum_posts">
+                <div class="username">{{reply.posterName}}</div>
+                <div class="reply-text">{{reply.text}}</div>
+            </div>
+            <div class="postSubmitForm">
+                <textarea rows="4" cols="115" ng-model="forumReply"></textarea>
+                <div class="submit-button" ng-click="saveReply()">Submit</div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

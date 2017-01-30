@@ -1,0 +1,58 @@
+﻿
+<div class="container">
+    <br /><br />
+    <br /><br />
+    <br /><br />
+
+    <div class="form-group pusher-20">
+        <div class="text-center">
+            <h1>
+            <span class="glyphicon glyphicon-list-alt"></span>
+             Test list</h1>
+        </div>
+    </div>
+    <div class="form-group">
+        <div ng-repeat="test in tests" class="col-xs-12 pusher-20">
+            <div class="col-xs-12  pusher-20 pusher-top-20" style="border: 2px dashed #808080;">
+                <div ng-if="test.username === 'IamTheGod'" class="col-xs-12 pusher-20">
+                    <div class="pull-left">
+                        <a class="btn-link" style="color:green;font-size:20px" ng-click="editTest(test)">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <a class="btn-link" style="color:red;font-size:20px" ng-click="removeTest(test)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 pusher-20">
+                    <div class="col-xs-12 pusher-20" style="padding-left:0px; padding-right:0px">
+                        <div class="col-lg-3" style="padding-left:0px">
+                            <label style="font-style:bold">
+                                Description:
+                            </label>
+                        </div>
+                        <div class="col-xs-9" style="padding-right:0px">
+                            <input ng-value="test.description" type="text" class="form-control" disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 pusher-20" style="padding-left:0px; padding-right:0px">
+                        <div class="col-lg-3" style="padding-left:0px">
+                            <label style="font-style:bold">
+                                Creator:
+                            </label>
+                        </div>
+                        <div class="col-xs-9" style="padding-right:0px">
+                            <input ng-value="test.username" type="text" class="form-control" disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <button ng-click="beginTest(test)" class="btn btn-danger form-control">Begin Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

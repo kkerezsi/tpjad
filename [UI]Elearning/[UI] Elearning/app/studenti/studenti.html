@@ -1,0 +1,13 @@
+﻿
+<div style="background-color:white">
+    Nr de studenti : {{ nrDeStudenti }}
+
+    <a ng-click="adaugaStudent()"> Adauga un student </a>
+
+    <input type="text" ng-model="numeStudent" />
+    <button class="btn btn-success" ng-click="adaugaStudentInLista(numeStudent)"> Adauga studenti</button>
+
+    <div ng-repeat="student in myList">
+        <p>{{student}}</p>
+    </div>
+</div>

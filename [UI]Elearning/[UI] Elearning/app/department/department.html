@@ -1,0 +1,55 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Departments</title>
+
+</head>
+<body style="background-color: #eee">
+    <div class="jumbotron" style="width: 300px; text-align: right; margin: 0 auto; margin-top:50px;">
+        <table class="table table-striped">
+            <thead>
+                <tr style="font-weight:bold">
+                    <td>#</td>
+                    <td>Department name</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dep in allDepartments">
+                    <td>{{$index + 1}}</td>
+                    <td>{{dep.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <div class="jumbotron" style="width:600px;margin:0 auto;text-align:center">
+
+            <!--
+                Add department
+            -->
+            <div class="container">
+                <h2>Add new department</h2>
+                <form class="form-horizontal" name="form" novalidate>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Department Name</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="departmentName" type="text" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center" style="margin-left:40%;">
+                        <button class="btn btn-primary col-lg-11" ng-click="AddDepartment()"
+                                style="height:30px">
+                            Save Department
+                        </button>
+                    </div>
+                    <div class="text-center">
+                        <b ng-if="successfullySaved" style="color:green;padding-left:0px;">
+                            Registration Successful!
+                        </b>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

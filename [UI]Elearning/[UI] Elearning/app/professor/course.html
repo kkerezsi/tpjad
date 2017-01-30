@@ -1,0 +1,125 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Courses</title>
+
+</head>
+<body style="background-color: #eee">
+    <aside class="navbar navbar-inverse" style="width: 300px; height: 100%; position: fixed; float: left; margin-top: 50px; border-radius: 0; border: none;">
+        <div class="container-fluid">
+            <ul class="nav nav-stacked" role="tablist">
+                <li><a href="#/AddCourse">Add Course</a></li>
+                <li><a href="#">Add Assistant</a></li>
+                <li><a href="#/AddCourseEvent">Courses Calendar</a></li>
+                <li><a href="#/Test">Course tests</a></li>
+                <li><a href="#/Lesson">Course lessons</a></li>
+                <li><a href="#/TestList">Course tests list</a></li>
+                <li><a href="#/CourseGroups">Course groups</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-->
+        Display list of courses    
+    </!-->
+    <div class="jumbotron" style="width:900px;height:200px;overflow:auto;margin-left:300px;text-align:center">
+        <table class="table table-striped">
+            <thead>
+                <tr style="font-weight:bold">
+                    <td>#</td>
+                    <td>Course name</td>
+                    <td>Department name</td>
+                    <td>Start date</td>
+                    <td>End date</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="course in allCourses">
+                    <td>{{$index + 1}}</td>
+                    <td>{{course.name}}</td>
+                    <td>{{course.department}}</td>
+                    <td>{{course.date_start}}</td>
+                    <td>{{course.date_end}}</td>
+                    <td id="course.id"><button ng-click="RemoveCourse(course.id,course.name)"><span class="glyphicon glyphicon-trash"></span></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="jumbotron" style="width:900px;float:left;margin-left:300px;text-align:center">
+
+        <!--
+            Add course
+        -->
+        <div class="container">
+            <h2>Add new course</h2>
+            <form class="form-horizontal" name="form" novalidate>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Course Name</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="courseName" type="text" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Start Date</label>
+                    <div class="col-sm-10">
+                        <input class="col-sm-12" type="date" id="startdate" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">End Date</label>
+                    <div class="col-sm-10">
+                        <input class="col-sm-12" type="date" id="enddate" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Department Name</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="department">
+                            <option ng-repeat="department in allDepartments" value={{department.id}}>
+                                {{department.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Course Content</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="5" id="content" style="resize: none;overflow:auto;" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Course Syllabus</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="5" id="syllabus" style="resize: none;overflow:auto;" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Teacher Contact</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="2" id="contact" style="resize: none;overflow:auto;" required></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 text-center" style="margin-left:40%;">
+                    <button class="btn btn-primary col-lg-11" ng-click="AddCourse()"
+                            style="height:30px">
+                        Save Course
+                    </button>
+                </div>
+                <div class="text-center">
+                    <b ng-if="successfullySaved" style="color:green;padding-left:0px;">
+                        Registration Successful!
+                    </b>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

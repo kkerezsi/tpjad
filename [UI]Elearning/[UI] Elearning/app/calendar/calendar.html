@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<head>
+
+    <link href="../../Content/CourseListStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+
+        <div style="position:relative;top:50px;left:25%">
+            <label style="font-size:60px;color:black;">Personal Calendar</label>
+        </div>
+
+        <div style="position:relative;top:150px;">
+            <div style="float:left; width: 160px">
+                <daypilot-navigator id="navi" daypilot-config="navigatorConfig"></daypilot-navigator>
+            </div>
+            <div style="margin-left: 160px">
+
+                <div class="col-md-12">
+                    <daypilot-calendar id="week"
+                                       daypilot-config="weekConfig"
+                                       daypilot-events="events" />
+
+                </div>
+               
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>

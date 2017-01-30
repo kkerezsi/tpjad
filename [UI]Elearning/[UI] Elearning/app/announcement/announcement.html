@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Announcements</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body style="background-color: #eee">
+    <br />
+    <br />
+    <div class="notification" style="width:300px;margin:60px;float:left;" ng-repeat="ann in allAnnouncements" ng-if="!ann.course_group">
+        <div class="btn-group  btn-group-justified">
+            <a href="" class="btn btn-primary" style="pointer-events:none;">{{ann.title}}</a>
+            <a href="" ng-click="Minimize($event)" class="btn btn-primary" title="minimize notification"><span class=" glyphicon glyphicon-minus"></span></a>
+            <a href="" ng-click="MarkRead()" class="btn btn-primary" title="mark as read"><span class=" glyphicon glyphicon-ok"></span></a>
+        </div>
+        <div class="content" style="width:100%;height:100px;overflow:auto;display:block;">
+            <p>
+               {{ann.text}}
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
