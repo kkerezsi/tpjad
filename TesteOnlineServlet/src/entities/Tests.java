@@ -124,8 +124,9 @@ public class Tests implements java.io.Serializable {
 
 	public String toString() {
 		return "{\"id\":" + id + ", \"domain\":\"" + domain
+				+ "\", \"username\":\"" + users.getFullName()
 				+ "\", \"description\":\"" + description + "\", "
 				+ "\"questionses\":" + questionses.toString() +"}";
 	}
-
+	
 }

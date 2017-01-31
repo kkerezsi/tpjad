@@ -23,18 +23,15 @@ public class Main {
 
 		// /users testing
 
-		TestsDAO testDAO = new TestsDAO();
-		Tests test = testDAO.findTest(5);
-		System.out.println("FTest t5: " + test.toString());
-
-
-
 		// JSON from file to Object
-		ObjectMapper mapper = new ObjectMapper();
-		test = mapper.readValue(new File(
-				"C:\\Users\\brad\\TesteOnline\\TesteOnlineServlet\\file.json"),
-				Tests.class);
+		UsersDAO usersDao = new UsersDAO();
+		System.out.println(usersDao.findUser(7));
 
-		System.out.println("FTest t5: " + test.toString());
+		ResultsDAO resultsDao = new ResultsDAO();
+		List<entities.Results> results = resultsDao.findResultsOfUser(usersDao.findUser(7));
+		
+		System.out.println(results.toString());
+		
+		
 	}
 }

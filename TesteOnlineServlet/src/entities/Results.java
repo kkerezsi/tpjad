@@ -18,7 +18,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Results", catalog = "tpjad")
-
 public class Results implements java.io.Serializable {
 
 	/**
@@ -81,8 +80,10 @@ public class Results implements java.io.Serializable {
 	}
 
 	public String toString() {
-		return "{\"id\":" + id + ", \"test\":" + tests.getId() + ", \"user\":"
-				+ users.getId() + ", \"score\":" + score + "}";
+		return "{\"id\":" + id + ", \"testDomain\":" + tests.getDomain() + "\" "
+				+ "\"testDescription\":\"" + tests.getDescription() + "\""
+				+ ", \"user\":" + users.getFullName() + ", \"score\":" + score
+				+ "}";
 	}
 
 }

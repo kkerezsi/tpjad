@@ -75,4 +75,21 @@ public class UsersDAO {
 			return null;
 		}
 	}
+	
+	public Users getByUsername(String username) {
+		try {
+			if (!this.sessionFactory.getCurrentSession().getTransaction()
+					.isActive())
+				this.sessionFactory.getCurrentSession().getTransaction()
+						.begin();
+			return (Users) this.sessionFactory
+					.getCurrentSession()
+					.createCriteria(Users.class)
+					.add(Restrictions.eq("fullName", username))
+					.uniqueResult();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
 }

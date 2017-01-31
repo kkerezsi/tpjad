@@ -83,7 +83,7 @@ public class Answere implements java.io.Serializable {
 	}
 
 	public String toString() {
-		return "{\"id\":" + id + ", \"text\":\"" + text + "\"}";
+		return "{\"id\":" + id + ", \"text\":\"" + text + "\", \"isCorrect\":\"" + isCorect() + "\"}";
 	}
 
 }

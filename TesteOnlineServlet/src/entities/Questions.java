@@ -95,7 +95,6 @@ public class Questions implements java.io.Serializable {
 	public String toString() {
 		return "{\"id\":" + id + ", \"text\":\"" + text + "\", "
 				+ "\"answeres\":" + answeres.toString() + "}";
-	}
-	
+	}	
 
 }
