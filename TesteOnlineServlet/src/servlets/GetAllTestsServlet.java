@@ -10,14 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codehaus.jackson.JsonNode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import dao.TestsDAO;
-import dao.UsersDAO;
 import entities.Tests;
-import entities.Users;
 
 /**
  * Servlet implementation class GetAllTestsServlet
@@ -50,8 +47,8 @@ public class GetAllTestsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+	
+
 		TestsDAO testDAO = new TestsDAO();
 		List<Tests> tests = testDAO.findALL();
 		PrintWriter writer = response.getWriter();

@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.Utils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import dao.UsersDAO;
 import entities.Users;
 
@@ -46,8 +51,19 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		JSONObject j = null;
+		
+		String username = "";
+		String password = "";
+		
+		try {
+			j = Utils.convertRequestToJSON(request);
+			username = j.getString("username");
+			password = j.getString("password");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		if(username != null && password != null){
 			UsersDAO usersDao = new UsersDAO();
@@ -55,16 +71,15 @@ public class RegisterServlet extends HttpServlet {
 			
 			PrintWriter writer = response.getWriter();
 			if (user != null){
-				writer.write("User alredy exists");
-			}else{
-				
-				writer.write("User created");
-				
+				writer.write("");
+			}else{				
 				Users user2 = new Users();
 				user2.setEmail(username + "@email.com");
 				user2.setFullName(username);
 				user2.setPassword(password);
-				usersDao.create(user2);
+				int uId = usersDao.create(user2);
+				Users newU = usersDao.findUser(uId);
+				writer.write(newU.toString());
 			}
 		}
 	}
