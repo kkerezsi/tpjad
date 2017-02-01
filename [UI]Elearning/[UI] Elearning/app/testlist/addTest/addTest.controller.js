@@ -35,7 +35,7 @@ function addTestCtrl(test, $scope, $rootScope, $modalInstance) {
         options.push({
             id: 0,
             text: "Default",
-            corect: true
+            corect: false
         })
     }
 
@@ -63,5 +63,13 @@ function addTestCtrl(test, $scope, $rootScope, $modalInstance) {
 
     function removeQuestion(questions, index) {
         questions.splice(index, 1);
+    }
+
+    $scope.setAnswer = function setAnswer(option, answeres) {
+        for (var i = 0; i < answeres.length; i++) {
+            answeres[i].corect = false;
+        }
+
+        option.corect = true;
     }
 }

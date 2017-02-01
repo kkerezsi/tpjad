@@ -34,7 +34,7 @@ function addTestCtrl(test, $scope, $rootScope, $modalInstance) {
         options.push({
             id: 0,
             text: "Default",
-            corect: true
+            corect: false
         })
     }
 

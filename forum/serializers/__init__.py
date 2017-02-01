@@ -1,7 +1,0 @@
-__author__ = 'horiagalbenu'
-from message import MessageSerializer
-from forum_group import ForumGroupSerializer
-from forum_group_page import ForumGroupPageSerializer
-from forum_post import ForumPostSerializer
-from discussion import DiscussionSerializer
-from announcement import AnnouncementSerializer, HasSeenSerializer

@@ -1,0 +1,6 @@
+C:\Users\Alex.Kerezsi\Documents\Visual Studio 2015\Projects\TPJAD\elearning\[UI]Elearning\[UI] Elearning\bin\[UI] Elearning.dll.config
+C:\Users\Alex.Kerezsi\Documents\Visual Studio 2015\Projects\TPJAD\elearning\[UI]Elearning\[UI] Elearning\bin\[UI] Elearning.dll
+C:\Users\Alex.Kerezsi\Documents\Visual Studio 2015\Projects\TPJAD\elearning\[UI]Elearning\[UI] Elearning\bin\[UI] Elearning.pdb
+C:\Users\Alex.Kerezsi\Documents\Visual Studio 2015\Projects\TPJAD\elearning\[UI]Elearning\[UI] Elearning\obj\Debug\[UI] Elearning.csprojResolveAssemblyReference.cache
+C:\Users\Alex.Kerezsi\Documents\Visual Studio 2015\Projects\TPJAD\elearning\[UI]Elearning\[UI] Elearning\obj\Debug\[UI] Elearning.dll
+C:\Users\Alex.Kerezsi\Documents\Visual Studio 2015\Projects\TPJAD\elearning\[UI]Elearning\[UI] Elearning\obj\Debug\[UI] Elearning.pdb

@@ -5,9 +5,7 @@ testlistCtrl.$inject = ['$scope', '$rootScope', '$modal', 'testlistFactory', 'no
 function testlistCtrl($scope, $rootScope, $modal, testlistFactory, notifier) {
 
     $scope.currentUser = $rootScope.currentUser;
-
     $scope.editTest = function (test) {
-        test.isNew = false;
         test.userId = $rootScope.currentUser.userId;
 
         var modalInstance = $modal.open({
@@ -33,7 +31,11 @@ function testlistCtrl($scope, $rootScope, $modal, testlistFactory, notifier) {
     }
 
     $scope.removeTest = function (test) {
-        $scope.tests.splice($scope.tests.indexOf(test), 1);
+        testlistFactory.remove(test.id).then(function (result) {
+            testlistFactory.getTests().then(function (tests) {
+                $scope.tests = tests;
+            });
+        })
     }
 
     $scope.beginTest = function (test) {
