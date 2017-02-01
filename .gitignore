@@ -1,0 +1,26 @@
+db.sqlite3
+*.pyc
+env/
+.idea/
+
+
+*.suo
+bin
+obj
+*.user
+
+*.vssscc
+*.vspscc
+*.log
+*.Publish.xml
+glob:Local.testsettings
+syntax: glob
+*.sln.docstates
+[UI]Elearning/.vs/config/applicationhost.config
+.bundle
+.DS_Store
+db/*.sqlite3
+log/*.log
+tmp/
+public/system/images/
+public/system/avatars/
