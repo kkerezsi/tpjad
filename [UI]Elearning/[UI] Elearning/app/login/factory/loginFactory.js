@@ -4,7 +4,8 @@
     return {
         getAllUsers: getAllUsers,
         setCredentials: setCredentials,
-        logout : logout
+        logout: logout,
+        login: login
     };
 
     function getAllUsers() {
@@ -35,5 +36,12 @@
 
     function logout() {
         $cookieStore.remove('currentUser');
+    }
+
+    function login(username, password) {
+        return Restangular.all('Login').post({
+            username: username,
+            password: password
+        })
     }
 })

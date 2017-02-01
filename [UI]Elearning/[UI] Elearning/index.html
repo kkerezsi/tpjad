@@ -33,12 +33,12 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#/TestList">Lista Teste</a></li>
-                    <li><a style="cursor:pointer" ng-click="newTest()">Creaza Test</a></li>
+                    <li><a ng-if="$root.currentUser && $root.currentUser.username" href="#/TestList">Lista Teste</a></li>
+                    <li><a ng-if="$root.currentUser && $root.currentUser.username" style="cursor:pointer" ng-click="newTest()">Creaza Test</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-if="$root.currentUser"><a ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    <li ng-if="$root.currentUser"><a ng-click="scoreBoard()"><span class="glyphicon glyphicon-user"></span>{{$root.currentUser.username}}</a></li>
+                    <li ng-if="$root.currentUser && $root.currentUser.username"><a ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <li ng-if="$root.currentUser && $root.currentUser.username"><a ng-click="scoreBoard()"><span class="glyphicon glyphicon-user"></span>{{$root.currentUser.username}}</a></li>
                  </ul>
             </div>
         </div>

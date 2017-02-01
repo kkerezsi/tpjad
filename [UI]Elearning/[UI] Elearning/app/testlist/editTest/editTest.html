@@ -1,5 +1,5 @@
 ﻿<div class="modal-header">
-    <h3> <span class="glyphicon glyphicon-edit"></span> {{'Add'}} test </h3>
+    <h3> <span class="glyphicon glyphicon-edit"></span> {{'Edit'}} test </h3>
 </div>
 <div class="modal-body col-sm-12 modal-backgorund">
     <ng-form name="testForm" novalidate>
@@ -53,7 +53,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button class="btn btn-info" ng-click="addOption(question.answeres)"> Add Option</button>
+                                        <button class="btn btn-info" ng-click="addOption(question.answeres)"> Edit Option</button>
                                     </td>
                                     <td></td>
                                     <td>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="pull-left">
-                        <button class="btn btn-info" ng-click="addQuestion(test)">Add Question</button>
+                        <button class="btn btn-info" ng-click="editQuestion(test)">Edit Question</button>
                     </div>
                     
                 </div>
@@ -77,6 +77,6 @@
     </ng-form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="saveTest(testForm.$valid)">{{ 'Add'}}</button>
+    <button class="btn btn-primary" ng-click="editTest(testForm.$valid)">{{ 'Edit'}}</button>
     <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
 </div>

@@ -4,8 +4,11 @@
 testlistCtrl.$inject = ['$scope', '$rootScope', '$modal', 'testlistFactory', 'notifier'];
 function testlistCtrl($scope, $rootScope, $modal, testlistFactory, notifier) {
 
+    $scope.currentUser = $rootScope.currentUser;
+
     $scope.editTest = function (test) {
         test.isNew = false;
+        test.userId = $rootScope.currentUser.userId;
 
         var modalInstance = $modal.open({
             animation: true,
@@ -18,7 +21,7 @@ function testlistCtrl($scope, $rootScope, $modal, testlistFactory, notifier) {
         });
 
         modalInstance.result.then(function (test) {
-            testlistFactory.addTest(test).then(function success() {
+            testlistFactory.editTest(test).then(function success() {
                 notifier.notify("Test saved successfully");
                 testlistFactory.getTests().then(function (tests) {
                     $scope.tests = tests;
@@ -45,7 +48,7 @@ function testlistCtrl($scope, $rootScope, $modal, testlistFactory, notifier) {
         });
 
         modalInstance.result.then(function (test) {
-            testlistFactory.addTest(test).then(function success() {
+            testlistFactory.beginTest(test).then(function success() {
                 notifier.notify("Test submitted successfully");
                 testlistFactory.getTests().then(function (tests) {
                     $scope.tests = tests;

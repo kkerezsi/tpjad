@@ -14,7 +14,7 @@
     <div class="form-group">
         <div ng-repeat="test in tests" class="col-xs-12 pusher-20">
             <div class="col-xs-12  pusher-20 pusher-top-20" style="border: 2px dashed #808080;">
-                <div ng-if="test.username === 'IamTheGod'" class="col-xs-12 pusher-20">
+                <div ng-if="test.username === currentUser.fullName" class="col-xs-12 pusher-20">
                     <div class="pull-left">
                         <a class="btn-link" style="color:green;font-size:20px" ng-click="editTest(test)">
                             <span class="glyphicon glyphicon-edit"></span>
@@ -41,6 +41,17 @@
                     <div class="col-xs-12 pusher-20" style="padding-left:0px; padding-right:0px">
                         <div class="col-lg-3" style="padding-left:0px">
                             <label style="font-style:bold">
+                                Domain:
+                            </label>
+                        </div>
+                        <div class="col-xs-9" style="padding-right:0px">
+                            <input ng-value="test.domain" type="text" class="form-control" disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 pusher-20" style="padding-left:0px; padding-right:0px">
+                        <div class="col-lg-3" style="padding-left:0px">
+                            <label style="font-style:bold">
                                 Creator:
                             </label>
                         </div>
@@ -50,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <button ng-click="beginTest(test)" class="btn btn-danger form-control">Begin Test</button>
+                    <button ng-disabled="!currentUser" ng-click="beginTest(test)" class="btn btn-danger form-control">Begin Test</button>
                 </div>
             </div>
         </div>

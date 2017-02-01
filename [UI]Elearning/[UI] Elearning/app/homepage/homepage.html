@@ -14,8 +14,21 @@
             <br />
             <div class="col-lg-4 col-md-4 col-sm-4"></div>
             <div class="col-lg-4 col-md-4 col-sm-7" >
-                <a class="btn btn-primary col-lg-10 col-md-10 col-sm-10" href="#/LogIn">
+                <a ng-if="(!$root.currentUser ||  ($root.currentUser && !$root.currentUser.username))" class="btn btn-primary col-lg-10 col-md-10 col-sm-10" href="#/LogIn">
                     SIGN IN
+                </a>
+                <br />
+                <br />
+                <br />
+                <a ng-if="(!$root.currentUser ||  ($root.currentUser && !$root.currentUser.username))" class="btn btn-primary col-lg-10 col-md-10 col-sm-10" href="#/Register">
+                    Register
+                </a>
+                <br />
+                <br />
+                <br />
+
+                <a ng-if="$root.currentUser && $root.currentUser.username" class="btn btn-primary col-lg-10 col-md-10 col-sm-10" href="#/TestList">
+                    Test List
                 </a>
                 <br />
                 <br />

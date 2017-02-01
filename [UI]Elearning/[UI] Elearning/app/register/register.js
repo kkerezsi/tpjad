@@ -1,6 +1,6 @@
 ﻿var registerModule = angular.module('registerModule', [])
 
-.controller('RegisterCtrl', function ($scope, $rootScope, registerFactory) {
+.controller('RegisterCtrl', function ($scope, $rootScope, $location, registerFactory) {
 
     $scope.firstName = "";
     $scope.lastName = "";
@@ -15,8 +15,6 @@
         $scope.optionalSelected = !$scope.optionalSelected;
     }
 
-    $scope.promise = registerFactory.getOptions().list;
-
     if ($scope.promise != null) {
         $scope.options = $scope.promise;
     }
@@ -25,22 +23,17 @@
         $scope.option = option;
     }
 
-    $scope.SaveUser = function () {
-        var firstName = form.firstName.value;
-        var lastName = form.lastName.value;
-        var email = form.email.value;
-        var type = form.userType.value;
-        if (firstName.length > 0 && lastName.length > 0 && email > 0)
-        registerFactory.saveUser({
-                'name': firstName,
-                'firstName': firstName,
-                'lastName': lastName,
-                'email': email,
-                'type': type,
-                'group': 1
+    $scope.SaveUser = function (form) {
+        var username = form.username.$modelValue;
+        var password = form.password.$modelValue;
+        if (username.length > 0 && password.length > 0)
+            registerFactory.saveUser({
+                'username': username,
+                'password': password,
             })
-                .then(function (data) {
-                    $scope.successfullyRegistred = true;
-                });
+            .then(function (data) {
+                $scope.successfullyRegistred = true;
+                $location.path("/Login");
+            });
     }
 })

@@ -40,6 +40,7 @@ var app = angular.module('elearning', [
     'groupsModule',
     'testlistModule',
 ])
+
 .config(function config($routeProvider, RestangularProvider, $httpProvider, configs) {
     RestangularProvider.setBaseUrl(configs.baseUrl);
     $httpProvider.defaults.useXDomain = true;
@@ -61,9 +62,7 @@ var app = angular.module('elearning', [
             templateUrl: 'app/testlist/testlist.html',
             resolve: {
                 permission: function (authorizationService, $route) {
-                    //return authorizationService.permissionCheck([
-                    //    roles.User
-                    //]);
+                    return false;
                 }
             }
         })
@@ -72,8 +71,6 @@ var app = angular.module('elearning', [
              templateUrl: 'app/register/register.html',
              resolve: {
                  permission: function (authorizationService, $route) {
-                     return authorizationService.permissionCheck([
-                     ]);
                  }
              }
          })
@@ -109,11 +106,11 @@ var app = angular.module('elearning', [
 
     function newTest() {
         var test = {
-            id: null,
+            id: 0,
+            userId : $rootScope.currentUser.userId,
             description: "",
-            questions: [
-            ],
-            isNew : true
+            questionses: [
+            ]
         }
 
         var modalInstance = $modal.open({

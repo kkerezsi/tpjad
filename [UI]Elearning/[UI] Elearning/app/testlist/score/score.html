@@ -12,17 +12,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>t1</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>t2</td>
-                    <td>9</td>
-                </tr>
-                <tr>
-                    <td>t3</td>
-                    <td>12</td>
+                <tr ng-repeat="score in scores">
+                    <td>{{score.testDescription}}</td>
+                    <td>{{score.score}}</td>
                 </tr>
             </tbody>
         </table>

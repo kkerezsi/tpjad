@@ -79,6 +79,8 @@
     <Content Include="app\groups\factory\groupsFactory.js" />
     <Content Include="app\groups\groups.html" />
     <Content Include="app\groups\groups.js" />
+    <Content Include="app\testlist\editTest\editTest.controller.js" />
+    <Content Include="app\testlist\editTest\editTest.html" />
     <Content Include="app\testlist\beginTest\beginTest.html" />
     <Content Include="app\testlist\beginTest\beginTest.controller.js" />
     <Content Include="app\testlist\addTest\addTest.controller.js" />

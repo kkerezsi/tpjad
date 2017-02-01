@@ -26,7 +26,6 @@ function addTestCtrl(test, $scope, $rootScope, $modalInstance) {
         $scope.testForm.submitted = true;
 
         if ($scope.testForm.$valid) {
-            test.userId = $rootScope.currentUser.id;
             $modalInstance.close(test);
         }
     }
@@ -45,7 +44,7 @@ function addTestCtrl(test, $scope, $rootScope, $modalInstance) {
 
         test.questionses.push(
             {
-                id: null,
+                id: 0,
                 text: "Default question",
                 answeres: [
                 {
